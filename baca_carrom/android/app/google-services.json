@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "607839628612",
+    "firebase_url": "https://baca-carrom.firebaseio.com",
+    "project_id": "baca-carrom",
+    "storage_bucket": "baca-carrom.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:607839628612:android:32de1b63b7979e82",
+        "android_client_info": {
+          "package_name": "com.pannac.baca_carrom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "607839628612-qsmfqjfomv8hqlnmiuokj59p8mt075kp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3GTS13JcZK_iDXUP2nuMFpJ9wsmxXEGk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
