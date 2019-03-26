@@ -1,6 +1,9 @@
+// Author: Panna Chowdhury (pannac@gmail.com)
+// [On behalf of Bay Area Carrom Association]
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_html_view/flutter_html_view.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 class NewsWidget extends StatefulWidget {
   @override
@@ -23,11 +26,7 @@ class _NewsWidgetState extends State<NewsWidget> {
   }
 
   Widget _getData(BuildContext context, List<DocumentSnapshot> snapshot) {
-    return SingleChildScrollView(
-      child: Center(
-          child: HtmlView(data: snapshot[0].data['text'])
-      ),
-    );
+    return Markdown(data: snapshot[0].data['text']);
   }
 
 }

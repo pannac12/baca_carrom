@@ -1,5 +1,10 @@
+// Author: Panna Chowdhury (pannac@gmail.com)
+// [On behalf of Bay Area Carrom Association]
+
 import 'package:flutter/material.dart';
 import 'app_data.dart';
+import 'news_widget.dart';
+
 
 class SignInWidget extends StatefulWidget {
   @override
@@ -21,6 +26,12 @@ class _SignInWidgetState extends State<SignInWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           TextFormField(
+            decoration: const InputDecoration(
+              border: UnderlineInputBorder(),
+              filled: true,
+              hintText: 'If you don''t know your key, please contact BACA',
+              labelText: 'Key *',
+            ),
             validator: (value) {
               print(value);
               if (value.isEmpty) {
@@ -39,7 +50,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                 if (_formKey.currentState.validate()) {
                   // If the form is valid, we want to show a Snackbar
                   Scaffold.of(context)
-                      .showSnackBar(SnackBar(content: Text(_playerId)));
+                      .showSnackBar(SnackBar(content: Text("Player key set to:" + _playerId)));
                   AppData appData = AppData();
                   appData.setPlayerId(_playerId);
                 }

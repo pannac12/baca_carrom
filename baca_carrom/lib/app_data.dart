@@ -1,3 +1,6 @@
+// Author: Panna Chowdhury (pannac@gmail.com)
+// [On behalf of Bay Area Carrom Association]
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppData {

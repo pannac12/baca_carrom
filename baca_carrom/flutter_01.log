@@ -1,0 +1,116 @@
+Flutter crash report; please file at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter build aot --suppress-analytics --quiet --target lib/main.dart --target-platform android-arm --output-dir /Users/pannac/AndroidStudioProjects/baca_carrom/build/app/intermediates/flutter/release --target-platform android-arm --release
+
+## exception
+
+ProcessException: ProcessException: Operation not permitted
+  Command: /Users/pannac/flutter/bin/cache/artifacts/engine/android-arm-release/darwin-x64/gen_snapshot --causal_async_stacks --packages=.packages --deterministic --snapshot_kind=app-aot-blobs --vm_snapshot_data=/Users/pannac/AndroidStudioProjects/baca_carrom/build/app/intermediates/flutter/release/vm_snapshot_data --isolate_snapshot_data=/Users/pannac/AndroidStudioProjects/baca_carrom/build/app/intermediates/flutter/release/isolate_snapshot_data --vm_snapshot_instructions=/Users/pannac/AndroidStudioProjects/baca_carrom/build/app/intermediates/flutter/release/vm_snapshot_instr --isolate_snapshot_instructions=/Users/pannac/AndroidStudioProjects/baca_carrom/build/app/intermediates/flutter/release/isolate_snapshot_instr --no-sim-use-hardfp --no-use-integer-division /Users/pannac/AndroidStudioProjects/baca_carrom/build/app/intermediates/flutter/release/app.dill
+
+```
+#0      runCommandAndStreamOutput (package:flutter_tools/src/base/process.dart:140:27)
+<asynchronous suspension>
+#1      GenSnapshot.run (package:flutter_tools/src/base/build.dart:68:12)
+#2      AOTSnapshotter.build (package:flutter_tools/src/base/build.dart:194:55)
+<asynchronous suspension>
+#3      BuildAotCommand.runCommand (package:flutter_tools/src/commands/build_aot.dart:137:56)
+<asynchronous suspension>
+#4      FlutterCommand.verifyThenRunCommand (package:flutter_tools/src/runner/flutter_command.dart:545:18)
+<asynchronous suspension>
+#5      FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:482:33)
+<asynchronous suspension>
+#6      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:142:29)
+<asynchronous suspension>
+#7      _rootRun (dart:async/zone.dart:1124:13)
+#8      _CustomZone.run (dart:async/zone.dart:1021:19)
+#9      _runZoned (dart:async/zone.dart:1516:10)
+#10     runZoned (dart:async/zone.dart:1463:12)
+#11     AppContext.run (package:flutter_tools/src/base/context.dart:141:18)
+<asynchronous suspension>
+#12     FlutterCommand.run (package:flutter_tools/src/runner/flutter_command.dart:473:20)
+#13     CommandRunner.runCommand (package:args/command_runner.dart:196:27)
+<asynchronous suspension>
+#14     FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:396:21)
+<asynchronous suspension>
+#15     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:142:29)
+<asynchronous suspension>
+#16     _rootRun (dart:async/zone.dart:1124:13)
+#17     _CustomZone.run (dart:async/zone.dart:1021:19)
+#18     _runZoned (dart:async/zone.dart:1516:10)
+#19     runZoned (dart:async/zone.dart:1463:12)
+#20     AppContext.run (package:flutter_tools/src/base/context.dart:141:18)
+<asynchronous suspension>
+#21     FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:356:19)
+<asynchronous suspension>
+#22     CommandRunner.run.<anonymous closure> (package:args/command_runner.dart:111:29)
+#23     new Future.sync (dart:async/future.dart:224:31)
+#24     CommandRunner.run (package:args/command_runner.dart:111:11)
+#25     FlutterCommandRunner.run (package:flutter_tools/src/runner/flutter_command_runner.dart:242:18)
+#26     run.<anonymous closure> (package:flutter_tools/runner.dart:60:20)
+<asynchronous suspension>
+#27     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:142:29)
+<asynchronous suspension>
+#28     _rootRun (dart:async/zone.dart:1124:13)
+#29     _CustomZone.run (dart:async/zone.dart:1021:19)
+#30     _runZoned (dart:async/zone.dart:1516:10)
+#31     runZoned (dart:async/zone.dart:1463:12)
+#32     AppContext.run (package:flutter_tools/src/base/context.dart:141:18)
+<asynchronous suspension>
+#33     runInContext (package:flutter_tools/src/context_runner.dart:48:24)
+<asynchronous suspension>
+#34     run (package:flutter_tools/runner.dart:51:10)
+#35     main (package:flutter_tools/executable.dart:52:9)
+<asynchronous suspension>
+#36     main (file:///Users/pannac/flutter/packages/flutter_tools/bin/flutter_tools.dart:8:3)
+#37     _startIsolate.<anonymous closure> (dart:isolate/runtime/libisolate_patch.dart:298:32)
+#38     _RawReceivePortImpl._handleMessage (dart:isolate/runtime/libisolate_patch.dart:171:12)
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel beta, v1.2.1, on Mac OS X 10.13.6 17G3025, locale en-US)
+    • Flutter version 1.2.1 at /Users/pannac/flutter
+    • Framework revision 8661d8aecd (4 weeks ago), 2019-02-14 19:19:53 -0800
+    • Engine revision 3757390fa4
+    • Dart version 2.1.2 (build 2.1.2-dev.0.0 0a7dcf17eb)
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 28.0.3)
+    • Android SDK at /Users/pannac/Library/Android/sdk
+    • Android NDK location not configured (optional; useful for native profiling support)
+    • Platform android-28, build-tools 28.0.3
+    • Java binary at: /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/bin/java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_152-release-1248-b01)
+    • All Android licenses accepted.
+
+[✗] iOS toolchain - develop for iOS devices
+    ✗ Xcode installation is incomplete; a full installation is necessary for iOS development.
+      Download at: https://developer.apple.com/xcode/download/
+      Or install Xcode via the App Store.
+      Once installed, run:
+        sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+    ✗ libimobiledevice and ideviceinstaller are not installed. To install with Brew, run:
+        brew update
+        brew install --HEAD usbmuxd
+        brew link usbmuxd
+        brew install --HEAD libimobiledevice
+        brew install ideviceinstaller
+    ✗ ios-deploy not installed. To install:
+        brew install ios-deploy
+    ✗ Brew can be used to install tools for iOS device development.
+      Download brew at https://brew.sh/.
+
+[✓] Android Studio (version 3.3)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    • Flutter plugin version 33.3.1
+    • Dart plugin version 182.5215
+    • Java version OpenJDK Runtime Environment (build 1.8.0_152-release-1248-b01)
+
+[✓] Connected device (2 available)
+    • Pixel 2 XL                • 711KPMZ0890259 • android-arm64 • Android 9 (API 28)
+    • Android SDK built for x86 • emulator-5554  • android-x86   • Android 8.1.0 (API 27) (emulator)
+
+! Doctor found issues in 1 category.
+```

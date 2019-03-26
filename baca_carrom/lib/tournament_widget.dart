@@ -1,3 +1,6 @@
+// Author: Panna Chowdhury (pannac@gmail.com)
+// [On behalf of Bay Area Carrom Association]
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'app_data.dart';
@@ -13,7 +16,8 @@ class _TournamentWidgetState extends State<TournamentWidget> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: Firestore.instance.collection('tournament').where("id", isEqualTo: AppData.playerId).snapshots(),
+      stream: Firestore.instance.collection('tournament').where(
+          "id", isEqualTo: AppData.playerId).snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData)
           return LinearProgressIndicator();
@@ -23,34 +27,66 @@ class _TournamentWidgetState extends State<TournamentWidget> {
   }
 
   Widget _getData(BuildContext context, List<DocumentSnapshot> snapshot) {
-    String date = "";
+    String tournament = "";
     String lastOpponent = "";
     String lastScore = "";
     String nextOpponent = "";
     String nextBoard = "";
     String startTime = "";
-    if (snapshot.length>0){
-      date = snapshot[0].data['date'];
+    if (snapshot.length > 0) {
+      tournament = snapshot[0].data['tournament'];
       lastOpponent = snapshot[0].data['last_opponent'];
-      lastScore = snapshot[0].data['last_score'];
       nextOpponent = snapshot[0].data['next_opponent'];
+      lastScore = snapshot[0].data['last_score'];
       nextBoard = snapshot[0].data['next_board'];
       startTime = snapshot[0].data['start_time'];
     }
-    return new Column(
+    return Column(
       children: <Widget>[
-        Text("Tournament date: " + date),
         Divider(),
-        Text("Last Opponent: " + lastOpponent),
         Divider(),
-        Text("Last Score: " + lastScore),
+        Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text("Tournament: "),
+              Text(tournament, style: TextStyle(fontWeight: FontWeight.bold)),
+            ]),
         Divider(),
-        Text("Next Opponent: " + nextOpponent),
+        Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text("Next Opponent: "),
+              Text(nextOpponent, style: TextStyle(fontWeight: FontWeight.bold)),
+            ]),
         Divider(),
-        Text("Next Board: " + nextBoard),
+        Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text("Next Board: "),
+              Text(nextBoard, style: TextStyle(fontWeight: FontWeight.bold)),
+            ]),
         Divider(),
-        Text("Start Time: " + startTime),
+        Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text("Start Time: "),
+              Text(startTime, style: TextStyle(fontWeight: FontWeight.bold)),
+            ]),
         Divider(),
+        Divider(),
+        Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text("Last Opponent: "),
+              Text(lastOpponent, style: TextStyle(fontWeight: FontWeight.bold)),
+            ]),
+        Divider(),
+        Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text("Last Score: "),
+              Text(lastScore, style: TextStyle(fontWeight: FontWeight.bold)),
+            ]),
       ],
     );
   }
