@@ -1,8 +1,8 @@
 // Author: Panna Chowdhury (pannac@gmail.com)
 // [On behalf of Bay Area Carrom Association]
 
-import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 
 class FeedbackWidget extends StatefulWidget {
   @override
@@ -38,14 +38,12 @@ void _navHome(BuildContext context) {
 void submitFeedback(String name, String text) {
   CollectionReference collection = Firestore.instance.collection('feedback');
   DateTime now = DateTime.now();
-  Map<String,dynamic> data = {
-    'date' : now.toString(),
-    'name' : name,
-    'text' : text,
+  Map<String, dynamic> data = {
+    'date': now.toString(),
+    'name': name,
+    'text': text,
   };
-  collection.add(data).whenComplete(() {
-    }
-  );
+  collection.add(data).whenComplete(() {});
 }
 
 class _FeedbackState extends State<FeedbackWidget> {
@@ -57,7 +55,7 @@ class _FeedbackState extends State<FeedbackWidget> {
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
-          title: new Text('Settings'),
+          title: new Text('Feedback'),
         ),
         body: Form(
             key: _formKey,

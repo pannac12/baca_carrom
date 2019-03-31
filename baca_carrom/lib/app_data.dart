@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AppData {
   final String _kPlayerId = "playerid";
   static String playerId = "";
+  static String playerName = "";
 
   Future<String> getPlayerId() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();

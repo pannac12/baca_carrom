@@ -29,7 +29,7 @@ class _SignInWidgetState extends State<SignInWidget> {
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
               filled: true,
-              hintText: 'If you don''t know your key, please contact BACA',
+              hintText: 'Please contact BACA for your player key',
               labelText: 'Key *',
             ),
             validator: (value) {
@@ -37,7 +37,7 @@ class _SignInWidgetState extends State<SignInWidget> {
               if (value.isEmpty) {
                 return 'Please enter some text';
               } else {
-                _playerId = value;
+                _playerId = value.toUpperCase();
               }
             },
           ),

@@ -87,6 +87,19 @@ class _TournamentWidgetState extends State<TournamentWidget> {
               Text("Last Score: "),
               Text(lastScore, style: TextStyle(fontWeight: FontWeight.bold)),
             ]),
+        Divider(),
+
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16.0),
+          child: RaisedButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed('/scores');
+            },
+            child: Text('Submit Scores'),
+          ),
+        ),
+
+
       ],
     );
   }

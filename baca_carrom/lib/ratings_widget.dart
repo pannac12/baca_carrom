@@ -31,6 +31,7 @@ class _RatingsWidgetState extends State<RatingsWidget> {
     int rating = 0;
     if (snapshot.length>0){
       name = snapshot[0].data['name'];
+      AppData.playerName = name;
       rank = snapshot[0].data['rank'];
       rating = snapshot[0].data['rating'];
     }

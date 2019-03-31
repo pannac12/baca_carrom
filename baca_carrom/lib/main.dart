@@ -9,6 +9,7 @@ import 'me_widget.dart';
 import 'app_data.dart';
 import 'settings.dart';
 import 'feedback.dart';
+import 'submit_score.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(App());
@@ -33,8 +34,8 @@ class _AppState extends State<App> {
   static const String PrivacyPolicy = 'Privacy Policy';
   static const String AboutBaca = 'About BACA';
 
-  static const String _urlTermsOfService = "https://bayareacarromassociation.org/ratings";
-  static const String _urlPrivacyPolicy = "https://bayareacarromassociation.org/tournaments";
+  static const String _urlTermsOfService = "https://bayareacarromassociation.org/terms-conditions";
+  static const String _urlPrivacyPolicy = "https://bayareacarromassociation.org/privacy-policy";
   static const String _urlAboutBaca = "https://bayareacarromassociation.org/about-us";
 
   List<String> _menuChoices = <String>[
@@ -84,6 +85,7 @@ class _AppState extends State<App> {
           '/settings': (BuildContext context) => new SettingsWidget(),
           '/feedback': (BuildContext context) => new FeedbackWidget(),
           '/home': (BuildContext context) => new HomeWidget(),
+          '/scores': (BuildContext context) => new SubmitScoreWidget(),
         },
         home: Builder(
         builder: (context) =>Scaffold(
